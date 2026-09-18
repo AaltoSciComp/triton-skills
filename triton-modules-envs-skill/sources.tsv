@@ -1,0 +1,7 @@
+url	note
+https://scicomp.aalto.fi/triton/tut/modules.html	Lmod modules tutorial
+https://scicomp.aalto.fi/triton/apps/python.html	Python on Triton
+https://scicomp.aalto.fi/triton/apps/pytorch.html	PyTorch / scicomp-pytorch-env
+https://scicomp.aalto.fi/triton/apps/conda.html	mamba/conda first-time and envs
+https://scicomp.aalto.fi/triton/ref/software.html	software quick reference
+https://scicomp.aalto.fi/triton/ref/gpu.html	GPU / CC pairing with envs

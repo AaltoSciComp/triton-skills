@@ -1,0 +1,6 @@
+url	note
+https://scicomp.aalto.fi/triton/usage/singularity.html	Apptainer/Singularity on Triton
+https://scicomp.aalto.fi/triton/apps/nvidiacontainers.html	NVIDIA container guidance
+https://scicomp.aalto.fi/triton/usage/gracehopper.html	ARM Grace-Hopper partition / builds
+https://scicomp.aalto.fi/triton/apps/fmriprep.html	IMAGE_PATH / bind examples
+https://scicomp.aalto.fi/triton/usage/ai-agents.html	secrets / blast radius

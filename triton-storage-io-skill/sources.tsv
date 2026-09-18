@@ -1,0 +1,9 @@
+url	note
+https://scicomp.aalto.fi/triton/tut/storage.html	storage tutorial / placement
+https://scicomp.aalto.fi/triton/ref/storage.html	storage ref table
+https://scicomp.aalto.fi/triton/usage/quotas.html	quotas / dust
+https://scicomp.aalto.fi/triton/usage/localstorage.html	node-local /tmp and ramfs
+https://scicomp.aalto.fi/triton/tut/remotedata.html	remote transfer
+https://scicomp.aalto.fi/triton/usage/smallfiles.html	Lustre small-file pitfalls
+https://scicomp.aalto.fi/data/requesting/	request project storage
+https://scicomp.aalto.fi/triton/usage/ai-agents.html	agent data-exposure posture

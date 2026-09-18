@@ -1,0 +1,12 @@
+url	note
+https://scicomp.aalto.fi/triton/ref/slurm.html	Slurm options cheat sheet
+https://scicomp.aalto.fi/triton/ref/gpu.html	GPU types / GRES
+https://scicomp.aalto.fi/triton/tut/serial.html	serial jobs
+https://scicomp.aalto.fi/triton/tut/array.html	array jobs
+https://scicomp.aalto.fi/triton/tut/gpu.html	GPU jobs
+https://scicomp.aalto.fi/triton/tut/parallel.html	parallel jobs
+https://scicomp.aalto.fi/triton/tut/monitoring.html	seff / right-sizing
+https://scicomp.aalto.fi/triton/apps/pytorch.html	scicomp-pytorch-env
+https://scicomp.aalto.fi/triton/apps/conda.html	mamba / source activate
+https://scicomp.aalto.fi/triton/usage/gracehopper.html	ARM Grace-H200
+https://scicomp.aalto.fi/triton/usage/ai-agents.html	agent safety policy
