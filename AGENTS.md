@@ -68,7 +68,6 @@ scratch are **not** backed up. Policy:
 1. Check claims against live docs / MCP; emit a short drift list before editing.
 2. Sync every mirrored place: `description`, quick start, `concepts.md`,
    `code-patterns.md`, README blurb.
-3. Run `./scripts/check-skills.sh`.
 
 Deferred packaging: `.agents/skills/` symlinks; Claude Code marketplace
 manifests. Install via `ln -s` — see `README.md`.
