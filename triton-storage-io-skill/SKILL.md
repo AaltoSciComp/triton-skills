@@ -45,7 +45,7 @@ Prefer live docs over memorized quotas:
 - **"Faster I/O / unpacking."** `--tmp=nnnG` + `/tmp/$SLURM_JOB_ID/`; copy
   results back before the job ends.
 - **"Copy data to/from Triton."** `rsync`/`sftp` to `triton.aalto.fi` (SMB:
-  `data.triton.aalto.fi`); no multi-TB syncs without approval.
+  `data.triton.aalto.fi`); no multi-TB syncs without explicit confirmation.
 
 ## Advice format
 
@@ -57,7 +57,3 @@ targets and wait for confirmation.
 - `references/concepts.md` — storage map, quotas, Lustre / small-file rules,
   local `/tmp` and ramfs.
 - `references/code-patterns.md` — `quota`/`dust`, staging, `--tmp`, transfers.
-
-Related: `triton-modules-envs-skill`, `triton-sbatch-drafting-skill`,
-`triton-agent-hygiene-skill`. Help:
-[SciComp garage](https://scicomp.aalto.fi/help/garage/).

@@ -15,7 +15,7 @@ full inventory tables into answers.
 | `--ntasks=N` / `-n` | MPI / multi-process |
 | `--nodes=N-M` / `-N` | Node count range |
 | `--gpus=N` or `TYPE:N` | GPU count / type |
-| `--gres=min-vram:NNg` / `min-cuda-cc:NN` | VRAM / compute capability (one `--gres`, comma-separated) |
+| `--gres=min-vram:NNg` / `min-cuda-cc:NN` | VRAM / compute capability (one `--gres`, comma-separated). Docs also show `gpu-vram:NNg` in places — use the form on the live [GPU ref](https://scicomp.aalto.fi/triton/ref/gpu.html) / tutorial; do not invent synonyms. |
 | `--partition=NAME` | Usually omit; auto from resources |
 | `--job-name` / `--output` / `--error` | `%j` `%x` `%A` `%a` |
 | `--array=…` | e.g. `0-9`, `1-10,15`, `0-99%50` |
@@ -43,12 +43,15 @@ Triton-specific rules:
   name when "any GPU with enough memory/CC" is enough.
 - `scicomp-python-env` PyTorch → older GPUs (V100-era).
 - Newer GPUs (H100/H200/B300-class): load the current
-  `scicomp-pytorch-env/…` from `module spider` / [PyTorch](https://scicomp.aalto.fi/triton/apps/pytorch/)
+  `scicomp-pytorch-env/<ver>` from `module spider` / [PyTorch](https://scicomp.aalto.fi/triton/apps/pytorch/)
   and pair with the CC GRES the docs require (often `min-cuda-cc:80`).
 - Grace-H200 is **ARM** — x86 binaries and x86 containers will not run.
   Partition name and GPU-hour caps: [Grace Hopper](https://scicomp.aalto.fi/triton/usage/gracehopper/).
 - **Do not paste memorized VRAM tables.** Look up live inventory:
   `slurm features` / [available GPUs](https://scicomp.aalto.fi/triton/ref/gpu.html).
+- **GRES naming:** tutorials often use `min-vram:NNg`; the GPU ref table also
+  mentions `gpu-vram:NNg`. Copy the form from live docs — one `--gres` only,
+  combine with commas.
 
 ## Software & paths
 
@@ -58,7 +61,7 @@ Put activation **inside** the script after `#SBATCH`:
 | --- | --- |
 | Own conda/mamba env | `module load mamba` then `source activate ENV` |
 | Central Python | `module load scicomp-python-env` |
-| Central PyTorch on newer GPUs | `module load scicomp-pytorch-env/…` (spider) + matching CC GRES |
+| Central PyTorch on newer GPUs | `module load scicomp-pytorch-env/<ver>` (`module spider`) + matching CC GRES |
 
 Do not recreate or silently modify the user’s env unless they ask. Data under
 `$WRKDIR` (`/scratch/work/$USER`) or `/scratch/DEPT/PROJECT/`, not `$HOME`.

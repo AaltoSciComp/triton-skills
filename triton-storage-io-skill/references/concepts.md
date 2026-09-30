@@ -54,6 +54,6 @@ Anti-priors:
 
 - Interactive transfer hosts: `rsync` / `sftp` → `triton.aalto.fi`; SMB →
   `data.triton.aalto.fi`. See [remote data](https://scicomp.aalto.fi/triton/tut/remotedata/).
-- Multi-TB syncs need human approval / planning.
+- Multi-TB syncs need explicit confirmation before starting.
 - Keep tokens and credentials out of agent-readable trees (agents may send
   file contents to external LLMs — [AI Agents on HPC](https://scicomp.aalto.fi/triton/usage/ai-agents/)).

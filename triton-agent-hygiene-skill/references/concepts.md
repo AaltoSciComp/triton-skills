@@ -11,7 +11,7 @@ Source of truth: [AI Agents on HPC](https://scicomp.aalto.fi/triton/usage/ai-age
 | Editor/CLI agent only on laptop | No | Still risks LLM exfil of local copies of data |
 | VS Code Remote-SSH / CLI agent on cluster | Yes (login node) | Use **`code.triton.aalto.fi`**; agent can read anything in its tree |
 
-If unsure, use garage — do not guess hostnames.
+If unsure of hostnames or policy, look up live docs / Docs MCP — do not guess.
 
 ## Policy checklist (agent session)
 
@@ -20,15 +20,5 @@ If unsure, use garage — do not guess hostnames.
 - [ ] No secrets or restricted data in the workspace the agent can read
 - [ ] Heavy work goes through Slurm, not the login CPU
 - [ ] No job-submit or queue-poll storms
-- [ ] Destructive commands shown and confirmed
-- [ ] User reviews outputs before trusting results
-
-## Sibling skills (load when the task matches)
-
-| Task | Skill |
-| --- | --- |
-| Draft `sbatch` | `triton-sbatch-drafting-skill` |
-| `seff` / queue / right-size | `triton-job-monitoring-skill` |
-| Modules / conda | `triton-modules-envs-skill` |
-| Paths / quota / I/O | `triton-storage-io-skill` |
-| Apptainer | `triton-containers-skill` |
+- [ ] Destructive commands shown and confirmed before run
+- [ ] Unverified results marked as such; no fabricated “facts”

@@ -13,7 +13,7 @@ description: >
 
 Policy: [AI Agents on HPC](https://scicomp.aalto.fi/triton/usage/ai-agents/).
 Also: [VS Code on Triton](https://scicomp.aalto.fi/triton/apps/vscode.html).
-The human is accountable — ask before destructive or cluster-wide actions.
+Ask before destructive or cluster-wide actions.
 
 ## Operating rules (read first)
 
@@ -41,8 +41,7 @@ The human is accountable — ask before destructive or cluster-wide actions.
 
 6. **Secrets & sensitive data.** Code and files the agent reads may be sent to
    an external LLM. No API keys, passwords, personal/GDPR, or confidential
-   research data in agent context; keep credentials out of opened trees. Prefer
-   synthetic data for agent sessions when needed.
+   research data in agent context; keep credentials out of opened trees.
 
 7. **IDE hygiene.** Open a specific project directory — not all of `$HOME`,
    `$WRKDIR`, or `/scratch` (file-index CPU storms).
@@ -50,17 +49,15 @@ The human is accountable — ask before destructive or cluster-wide actions.
 8. **Install deliberately.** Prefer modules / existing envs. No unsupervised
    pip/npm/conda from the open internet.
 
-9. **Git:** propose commands; let the user run them when credentials are
-   involved.
+9. **Git / credentials.** Propose git commands; do not run ones that need
+   interactive credentials or secrets unless explicitly asked and safe.
 
-10. **Supervise.** Prefer one agent at a time; save often (admins may kill
-    disruptive processes). Tell SciComp which agent/workflow you use via
-    [garage](https://scicomp.aalto.fi/help/garage/) or
-    [Zulip](https://scicomp.zulip.cs.aalto.fi/) when practical.
+10. **Persistence.** Prefer one focused agent session; write durable files
+    often (admins may kill disruptive login-node processes).
 
-11. **Review outputs.** Treat agent code/commands as untrusted; fabricated
-    research results are misconduct. Disclose AI assistance per integrity rules
-    when required.
+11. **Outputs.** Do not present guessed or unverified numbers/results as fact;
+    mark uncertainty. Treat drafted commands as requiring confirmation before
+    avoid-zone execution.
 
 ## Quick start: common requests
 
@@ -70,7 +67,7 @@ The human is accountable — ask before destructive or cluster-wide actions.
 | Submit | Show script; submit only if asked |
 | Many params | Design `--array`, not a submit loop |
 | GPU debug | `sinteractive` / `gpu-debug` / short `sbatch` |
-| Install | `module spider` / documented envs; list pkgs for approval |
+| Install | `module spider` / documented envs; list pkgs; wait for confirmation |
 | Delete / clean | Explain paths; require confirmation |
 | Cancel job | Show `scancel …`; require confirmation |
 
@@ -78,10 +75,5 @@ Workflow variants (local agent vs remote-on-login): `references/concepts.md`.
 
 ## Reference material
 
-- `references/concepts.md` — where the agent runs, policy checklist, sibling
-  skills. (No `code-patterns.md` — this skill is operating rules.)
-
-Related: `triton-sbatch-drafting-skill`, `triton-job-monitoring-skill`,
-`triton-modules-envs-skill`, `triton-storage-io-skill`,
-`triton-containers-skill`. Help:
-[SciComp garage](https://scicomp.aalto.fi/help/garage/).
+- `references/concepts.md` — where the agent runs, policy checklist.
+  (No `code-patterns.md` — this skill is operating rules.)

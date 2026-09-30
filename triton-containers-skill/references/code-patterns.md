@@ -11,9 +11,9 @@ export APPTAINER_CACHEDIR="$WRKDIR/apptainer_cache"
 
 ```bash
 module --terse avail 2>&1 | grep apptainer
-module load apptainer-fmriprep/25.2.3   # example — confirm version with spider
+module load apptainer-NAME   # pin /VERSION after module spider / avail
 apptainer run-help "$IMAGE_PATH"
-apptainer exec "$IMAGE_PATH" fmriprep --version
+apptainer exec "$IMAGE_PATH" COMMAND --version
 ```
 
 ## Interactive / one-shot
@@ -50,14 +50,14 @@ apptainer build image.sif docker://ORG/NAME:VERSION
 apptainer build image.sif recipe.def
 ```
 
-Example definition (pin tags; NGC tags change monthly):
+Example definition (pin tags from NGC / live docs — tags rotate):
 
 ```
 Bootstrap: docker
-From: nvcr.io/nvidia/pytorch:26.02-py3
+From: nvcr.io/nvidia/pytorch:TAG
 
 %post
-  pip install transformers==4.57.6
+  pip install transformers==PINNED
 ```
 
 Keep `.def` in git. Heavy / ARM builds: submit an `sbatch` on the right

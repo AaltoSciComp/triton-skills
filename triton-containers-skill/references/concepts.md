@@ -45,8 +45,9 @@ Missing binds look like “file not found” inside the container.
 
 ## ARM / Grace-Hopper
 
-- Partition example (verify live): `--partition=gpu-grace-h200-141g`
-  (`gpuarm[1-2]`).
-- Intended for testing/dev; GPU-hour caps apply — see Grace Hopper page.
-- x86 images do not run; build on an ARM allocation from an ARM base (e.g. NGC
-  PyTorch ARM tags).
+- Partition and GPU-hour caps: verify live on
+  [Grace Hopper](https://scicomp.aalto.fi/triton/usage/gracehopper/) — do not
+  invent partition names.
+- Intended for testing/dev; x86 images do not run.
+- Build on an ARM allocation from an ARM base (e.g. NGC PyTorch ARM tags —
+  pin current tags from NGC / live docs, not memorized strings).

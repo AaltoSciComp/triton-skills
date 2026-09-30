@@ -21,7 +21,8 @@ Exact module versions change — verify with `module spider` before pinning.
 | Need | Load (verify with spider) |
 | --- | --- |
 | Scientific Python | `scicomp-python-env` |
-| PyTorch on newer GPUs (e.g. B300) | `scicomp-pytorch-env/2026.1` |
+| PyTorch on newer GPUs | `scicomp-pytorch-env/<ver>` (spider / [PyTorch](https://scicomp.aalto.fi/triton/apps/pytorch/)) |
+| LLMs / HF stack | `scicomp-llm-env` + `model-huggingface` ([LLMs](https://scicomp.aalto.fi/triton/apps/llms.html)) |
 | R | `r` or `scicomp-r-env` |
 | Matlab | `matlab` (pin version if needed) |
 | Own conda/mamba | `mamba` then `source activate ENV` |
@@ -29,7 +30,8 @@ Exact module versions change — verify with `module spider` before pinning.
 
 - `scicomp-python-env` PyTorch → older GPUs (V100-era).
 - Newest GPUs → dedicated PyTorch module + matching CUDA CC GRES in the job
-  (see sbatch skill / [GPU ref](https://scicomp.aalto.fi/triton/ref/gpu.html)).
+  ([GPU ref](https://scicomp.aalto.fi/triton/ref/gpu.html)).
+
 - Activate with **`source activate` / `source deactivate`** (not
   `conda activate`) on Triton.
 
@@ -38,7 +40,7 @@ Exact module versions change — verify with `module spider` before pinning.
 - First-time: redirect pkgs/envs to `$WRKDIR` —
   [conda first-time setup](https://scicomp.aalto.fi/triton/apps/conda/#conda-first-time-setup).
 - Prefer `environment.yml` + `mamba env create --file …`.
-- Create/update only with user approval.
+- Create/update only after explicit confirmation.
 - CUDA builds may need `CONDA_OVERRIDE_CUDA=…`; do heavy work in a job, not on
   the login node.
 - `mamba clean` reclaims caches (does not delete envs).

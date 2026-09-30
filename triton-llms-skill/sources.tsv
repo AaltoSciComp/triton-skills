@@ -1,0 +1,7 @@
+url	note
+https://scicomp.aalto.fi/triton/apps/llms.html	LLMs / HF / shared cache
+https://scicomp.aalto.fi/triton/discipline/machinelearning.html	ML envs / dldata pointer
+https://scicomp.aalto.fi/triton/apps/pytorch.html	PyTorch / newer-GPU modules
+https://scicomp.aalto.fi/triton/ref/gpu.html	GPU / GRES pairing
+https://scicomp.aalto.fi/triton/tut/storage.html	quota / placement
+https://scicomp.aalto.fi/triton/usage/ai-agents.html	secrets / blast radius

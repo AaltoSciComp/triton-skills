@@ -31,8 +31,6 @@ live docs / Docs MCP over generic Slurm lore or memorized GPU inventories.
 
 2. **Never run the batch work on a login node.** Deliver `#SBATCH` scripts
    for `sbatch`, or `sinteractive` / `gpu-debug` for short interactive tests.
-   Prefer agents on **`code.triton.aalto.fi`**. Policy:
-   [AI Agents on HPC](https://scicomp.aalto.fi/triton/usage/ai-agents/).
 
 3. **Do not invent Triton Slurm.** Verify partitions, GRES, GPU names, and
    modules against live docs (`slurm features`,
@@ -51,7 +49,7 @@ live docs / Docs MCP over generic Slurm lore or memorized GPU inventories.
      it (Slurm opens those paths before the script body runs).
 
 5. **Right-size.** Conservative first script; refine with `seff` after a
-   test. Prefer one `--array` (with `%N` throttle) over floods of tiny jobs.
+   test. Prefer one `--array` (with `%N` throttle) over a large number of tiny jobs.
 
 ## Quick start: common requests
 
@@ -61,23 +59,17 @@ live docs / Docs MCP over generic Slurm lore or memorized GPU inventories.
   `references/code-patterns.md`.
 - **"GPU / PyTorch job."** `--gpus=1` (or type); prefer capability GRES over
   pinning a name; `gpu-debug` + `--gpus=1` for ≤30 min tests. Newer-GPU
-  PyTorch: confirm `scicomp-pytorch-env/…` with `module spider` and pair with
-  `min-cuda-cc` as docs require. Grace-H200 is **ARM** — x86 binaries will
-  not run. Details: `references/concepts.md`.
+  PyTorch: `module spider scicomp-pytorch-env` and pair with `min-cuda-cc`
+  (or live GRES form) as docs require. Grace-H200 is **ARM** — x86 binaries
+  will not run. Details: `references/concepts.md`.
 - **"Many parameter combinations."** One `--array` + `$SLURM_ARRAY_TASK_ID`,
   cap concurrency with `%N`; avoid thousands of tiny Lustre-thrashing tasks.
-- **"Interactive / debug now."** `sinteractive` or short `sbatch` on
-  `gpu-debug` — not the login node.
-- **"Use my conda env."** Activation **inside** the script after `#SBATCH`;
-  do not recreate or silently mutate the env unless asked. Data under
-  `$WRKDIR` or project scratch — not `$HOME`.
 
 ## Output format
 
 1. Brief rationale (job type + key resources)
 2. Full script
 3. Submit / check lines: `sbatch …`, `slurm q` (after a run: `seff JOBID`)
-4. One open question if a critical resource was guessed
 
 ## Reference material
 
@@ -90,7 +82,4 @@ Load when you need detail:
 
 When advising on mechanics, prefer these notes and live docs over memory; if
 silent on a detail, say so or look it up rather than inventing Triton
-behaviour. Related skills: `triton-agent-hygiene-skill`,
-`triton-job-monitoring-skill`, `triton-modules-envs-skill`,
-`triton-storage-io-skill`, `triton-containers-skill`. Help:
-[SciComp garage](https://scicomp.aalto.fi/help/garage/).
+behaviour.

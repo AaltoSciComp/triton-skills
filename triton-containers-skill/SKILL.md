@@ -55,7 +55,3 @@ available as a daemon — convert/pull with Apptainer. System binary in
 
 - `references/concepts.md` — binds, modules, ARM, cache, NVIDIA modules gone.
 - `references/code-patterns.md` — exec/sbatch, build, verify.
-
-Related: `triton-sbatch-drafting-skill`, `triton-storage-io-skill`,
-`triton-agent-hygiene-skill`. Help:
-[SciComp garage](https://scicomp.aalto.fi/help/garage/).

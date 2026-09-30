@@ -4,8 +4,8 @@ description: >
   Helps choose and load Triton software (Lmod modules, scicomp Python/PyTorch
   envs, mamba/conda). Use when the user needs Python/R/Matlab/CUDA on Triton,
   module load/spider, conda environments, or "package not found" on the
-  cluster. module spider is read-only; creating/updating envs needs approval;
-  bulk env rebuilds are avoid-zone.
+  cluster. module spider is read-only; creating/updating envs needs explicit
+  confirmation; bulk env rebuilds are avoid-zone.
 ---
 
 # Triton modules & environments
@@ -22,9 +22,9 @@ Module versions drift — `module spider` / Docs MCP over memory.
 1. **Safety tiers**
    - **Read-only** — `module spider` / `avail` / `list` / `show` on request.
    - **Create** — propose `module load` lines and `environment.yml`; create or
-     update conda/mamba envs only with user approval; show the plan first.
-   - **Avoid-zone** — silent `pip`/`conda`/`mamba` into shared or global paths,
-     bulk env rebuilds, wiping conda config. Write a reviewable command list;
+     update conda/mamba envs only after explicit confirmation; show the plan
+     first.
+   - **Avoid-zone** — bulk env rebuilds, wiping conda config. Write a reviewable command list;
      run only after confirmation.
 
 2. **Anti-priors**
@@ -43,18 +43,19 @@ Module versions drift — `module spider` / Docs MCP over memory.
 - **"What module for X?"** `module spider PATTERN` before inventing names.
   Common loads: `references/concepts.md`.
 - **"Python / PyTorch on GPU."** Older GPUs (V100-era): `scicomp-python-env`.
-  Newer GPUs (e.g. B300): `scicomp-pytorch-env/2026.1` + GRES
-  `min-cuda-cc:80` — confirm versions with spider / [PyTorch app page](https://scicomp.aalto.fi/triton/apps/pytorch/).
+  Newer GPUs: `scicomp-pytorch-env/<ver>` from `module spider` + matching CC
+  GRES — [PyTorch](https://scicomp.aalto.fi/triton/apps/pytorch/).
+- **"LLM / HuggingFace."** `scicomp-llm-env` + `model-huggingface`; shared
+  cache under `/scratch/shareddata/dldata/` —
+  [LLMs](https://scicomp.aalto.fi/triton/apps/llms.html).
 - **"Use / create my conda env."** Activation lines and first-time setup:
+
   `references/code-patterns.md`. Do not recreate silently.
 - **"Package not found."** Spider → central env → documented app page → only
-  then a user env with approval.
+  then a user env after explicit confirmation.
 
 ## Reference material
 
 - `references/concepts.md` — Lmod workflow, common loads, anti-patterns.
 - `references/code-patterns.md` — activate lines, mamba first-time, env create.
 
-Related: `triton-sbatch-drafting-skill`, `triton-storage-io-skill`,
-`triton-agent-hygiene-skill`. Help:
-[SciComp garage](https://scicomp.aalto.fi/help/garage/).

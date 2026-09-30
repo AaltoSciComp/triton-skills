@@ -42,6 +42,3 @@ Observe and right-size jobs. Docs:
 
 - `references/concepts.md` — states, efficiency playbook, mem gotchas.
 - `references/code-patterns.md` — command recipes.
-
-Related: `triton-sbatch-drafting-skill`, `triton-agent-hygiene-skill`. Help:
-[SciComp garage](https://scicomp.aalto.fi/help/garage/).

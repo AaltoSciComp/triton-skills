@@ -22,7 +22,7 @@ module load scicomp-python-env
 srun python script.py
 ```
 
-## Newer-GPU PyTorch (confirm module version with spider)
+## Newer-GPU PyTorch (pin version after spider)
 
 ```bash
 #!/bin/bash -l
@@ -33,7 +33,8 @@ srun python script.py
 #SBATCH --gres=min-cuda-cc:80
 #SBATCH --output=logs/%x-%j.out
 
-module load scicomp-pytorch-env/2026.1
+# module spider scicomp-pytorch-env   # then pin e.g. …/2026.1 if still current
+module load scicomp-pytorch-env
 srun python train.py
 ```
 
@@ -60,7 +61,7 @@ conda config --prepend envs_dirs "$WRKDIR/.conda_envs"
 Official steps:
 https://scicomp.aalto.fi/triton/apps/conda/#conda-first-time-setup
 
-## Create from file (needs user approval)
+## Create from file (needs explicit confirmation)
 
 ```bash
 module load mamba

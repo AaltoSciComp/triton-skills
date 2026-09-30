@@ -78,13 +78,14 @@ srun python train.py
 #SBATCH --gres=min-vram:40g,min-cuda-cc:80
 #SBATCH --output=logs/%x-%j.out
 
-module load scicomp-pytorch-env/2026.1   # confirm version: module spider
+module load scicomp-pytorch-env   # pin /<ver> after: module spider scicomp-pytorch-env
 srun python train_gpu.py
 ```
 
-For V100-era PyTorch, drop `min-cuda-cc` and use
-`module load scicomp-python-env`. Short GPU smoke test: add
-`#SBATCH --partition=gpu-debug` and keep `--time` ≤ 30 minutes.
+GRES form (`min-vram` vs `gpu-vram`): follow live
+[GPU docs](https://scicomp.aalto.fi/triton/tut/gpu.html). For V100-era
+PyTorch, drop `min-cuda-cc` and use `module load scicomp-python-env`. Short
+GPU smoke test: `#SBATCH --partition=gpu-debug` and `--time` ≤ 30 minutes.
 
 ## Array
 
@@ -111,11 +112,11 @@ Rerun failures: `sbatch --array=2,5 script.sh`.
 #SBATCH --gpus=1
 #SBATCH --output=logs/%x-%j.out
 
-module load triton/2024.1-gcc cuda/12.2.1
+module load triton/<stack> cuda/<ver>   # exact names: module spider cuda
 srun ./pi-gpu 1000000
 ```
 
-Module versions drift — confirm with `module spider` before copying.
+Module versions drift — always `module spider` before pinning.
 
 ## After submit
 
