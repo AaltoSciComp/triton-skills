@@ -11,6 +11,7 @@ Policy: [AI agents on HPC](https://scicomp.aalto.fi/triton/usage/ai-agents/).
 
 - Never read, print, move, or commit credentials.
 - Do not use git credentials.
+- If a task requires bypassing a rule, stop and ask — don't find workarounds.
 
 ## Login node and workspace
 
